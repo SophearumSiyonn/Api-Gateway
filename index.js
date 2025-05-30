@@ -8,13 +8,13 @@ const proxy = httpProxy.createProxyServer({});
 //redirect to the student micro-service
 app.use('/student', (req, res) => {
     console.log("INSIDE API GATEWAY STUDENT ROUTE")
-    proxy.web(req,res, {target:'http://localhost:5005'});
+    proxy.web(req,res, {target:'172.31.93.127'});
 })
 
 //redirect to the teacher micro-service
 app.use('/teacher', (req, res) => {
     console.log("INSIDE API GATEWAY TEACHER ROUTE")
-    proxy.web(req,res, {target:'http://localhost:5010'});
+    proxy.web(req,res, {target:'172.31.87.96'});
 })
 // START THE EXPRESS SERVER. 5000 is the PORT NUMBER
 app.listen(4008, () => {
